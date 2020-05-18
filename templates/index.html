@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Super Geocoder</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Super Geocoder!</h1>
+        <h3>Please upload a CSV file with a column that's either <i>Address</i> or <i>address</i></h3>
+        <form action="{{ url_for('success')}}" method="POST" enctype="multipart/form-data">
+            <input type="file" accept=".csv" name="file" id="input"> <br>
+            <button type="submit">Upload file</button>
+        </form>
+        <div class="message">
+            {{ table | safe }}
+        </div>
+        {% include [btn] ignore missing %}
+    </div>
+
+</body>
+
+</html>
